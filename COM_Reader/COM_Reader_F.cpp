@@ -35,6 +35,7 @@ ComReader::ComReader(LPCWSTR PortName, int BaudRate, int byteSize) : PortName(Po
 		std::cout << "Failed to connect to the port. \nThe name may have been entered incorrectly or the port may be busy. \nTry again. \n";
 
 	}
+
 	else
 	{
 		system("cls"); //else, we throw out a successful connection

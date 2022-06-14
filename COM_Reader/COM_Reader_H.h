@@ -33,7 +33,7 @@ struct ComReader
 	/// <summary>
 	/// Returns the size of the received packet.
 	/// </summary>
-	/// <returns></returns>
+	/// <returns></returns>   
 	size_t getSizeData();
 
 private:
@@ -42,5 +42,4 @@ private:
 	int _BaudRate;
 	int _byteSize;
 	size_t packSize;
-
 };
