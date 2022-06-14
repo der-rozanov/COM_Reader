@@ -4,7 +4,7 @@ ComReader::ComReader(LPCWSTR PortName, int BaudRate, int byteSize) : PortName(Po
 {
 	hSerial = ::CreateFile(PortName, GENERIC_READ | GENERIC_WRITE, 0, 0, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0); //Присвайваем значение
 
-	if (hSerial == INVALID_HANDLE_VALUE) //Обработка ошибки значения дескриптора (выпадает из возможныз)
+	if (hSerial == INVALID_HANDLE_VALUE) //Handle value error (falls out of the possible)
 	{
 		if (GetLastError() == ERROR_FILE_NOT_FOUND)
 		{
@@ -12,23 +12,23 @@ ComReader::ComReader(LPCWSTR PortName, int BaudRate, int byteSize) : PortName(Po
 		}
 	}
 
-	//Параметры соединения 
+	//Connection Parameters
 	DCB dcbSerialParams = { 0 };
 	dcbSerialParams.DCBlength = sizeof(dcbSerialParams);
 	if (!GetCommState(hSerial, &dcbSerialParams))
 	{
 		std::cout << "Getting state error. \n";
 	}
-	dcbSerialParams.BaudRate = _BaudRate; //Скорость чтения
-	dcbSerialParams.ByteSize = _byteSize; //Размер читаемого контейнера 
-	dcbSerialParams.StopBits = ONESTOPBIT; //хз, не лезь
-	dcbSerialParams.Parity = NOPARITY; //хз, не лезь
+	dcbSerialParams.BaudRate = _BaudRate; //Reading speed
+	dcbSerialParams.ByteSize = _byteSize; //The size of the readable container
+	dcbSerialParams.StopBits = ONESTOPBIT; //--
+	dcbSerialParams.Parity = NOPARITY; //--
 	if (!SetCommState(hSerial, &dcbSerialParams))
 	{
 		std::cout << "Error setting port state. \n\n";
 	};
 
-	//Если появляются ошибки  
+	//If errors appear
 	if (hSerial == INVALID_HANDLE_VALUE || !GetCommState(hSerial, &dcbSerialParams) || !SetCommState(hSerial, &dcbSerialParams))
 	{
 		system("cls");
@@ -37,7 +37,7 @@ ComReader::ComReader(LPCWSTR PortName, int BaudRate, int byteSize) : PortName(Po
 	}
 	else
 	{
-		system("cls"); //иначе выкидываем успешный коннект 
+		system("cls"); //else, we throw out a successful connection
 		std::cout << "Connecting successfully.\nPress Esc to exit.";
 		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 		system("cls");

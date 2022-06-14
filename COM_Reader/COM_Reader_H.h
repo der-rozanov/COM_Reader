@@ -7,31 +7,31 @@
 #include <vector>
 
 /// <summary>
-/// Класс ComReader создает объекты для чтения данных из последовательных UART портов.
+/// The ComReader class creates objects for reading data from serial UART ports.
 /// </summary>
 struct ComReader
 {
 	/// <summary>
 	/// 
 	/// </summary>
-	/// <param name="PortName">Название порта как LPCWSTR</param>
-	/// <param name="BaudRate">Скорость работы, по умолчанию 9600</param>
-	/// <param name="byteSize">Размер принимаемых пакетов, по умолчанию 8</param>
+	/// <param name="PortName">Port name LPCWSTR</param>
+	/// <param name="BaudRate">Operating speed, default 9600 </param>
+	/// <param name="byteSize">The size of the received packets, by default 8</param>
 	ComReader(LPCWSTR PortName, int BaudRate = 9600, int byteSize = 8);
 	
 	
 	/// <summary>
-	/// Выводит в консоль всю информацию, получаемую с COM порта.
+	/// Outputs all the information received from the COM port to the console.
 	/// </summary>
 	void PrintComData();
 
 	/// <summary>
-	/// Возвращает вектор-строку принятую из COM порта
+	/// Returns a vector-string received from the COM port
 	/// </summary>
 	std::vector<char> getCharData();
 
 	/// <summary>
-	/// Возвращает размер принятого пакета.
+	/// Returns the size of the received packet.
 	/// </summary>
 	/// <returns></returns>
 	size_t getSizeData();
