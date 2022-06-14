@@ -18,7 +18,7 @@
     <ClCompile Include="main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="ComRead_F.cpp">
+    <ClCompile Include="COM_Reader_F.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
