@@ -21,8 +21,8 @@ ComReader::ComReader(LPCWSTR PortName, int BaudRate, int byteSize) : PortName(Po
 	}
 	dcbSerialParams.BaudRate = _BaudRate; //Reading speed
 	dcbSerialParams.ByteSize = _byteSize; //The size of the readable container
-	dcbSerialParams.StopBits = ONESTOPBIT; //--
-	dcbSerialParams.Parity = NOPARITY; //--
+	dcbSerialParams.StopBits = ONESTOPBIT; //dont touch me there
+	dcbSerialParams.Parity = NOPARITY; //dont touch me there
 	if (!SetCommState(hSerial, &dcbSerialParams))
 	{
 		std::cout << "Error setting port state. \n\n";
