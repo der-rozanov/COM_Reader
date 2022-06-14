@@ -2,7 +2,7 @@
 
 ComReader::ComReader(LPCWSTR PortName, int BaudRate, int byteSize) : PortName(PortName), _BaudRate(BaudRate), _byteSize(byteSize)
 {
-	hSerial = ::CreateFile(PortName, GENERIC_READ | GENERIC_WRITE, 0, 0, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0); //Присвайваем значение
+	hSerial = ::CreateFile(PortName, GENERIC_READ | GENERIC_WRITE, 0, 0, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0); 
 
 	if (hSerial == INVALID_HANDLE_VALUE) //Handle value error (falls out of the possible)
 	{
