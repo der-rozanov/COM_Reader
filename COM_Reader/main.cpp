@@ -1,4 +1,4 @@
-#include "COM_Reader_H.h"
+#include "com_reader.h"
 
 int main()
 {

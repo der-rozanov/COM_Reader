@@ -39,7 +39,7 @@ struct ComReader
 private:
 	HANDLE hSerial;
 	LPCWSTR PortName;
-	int _BaudRate;
-	int _byteSize;
-	size_t packSize;
+	int baud_rate;
+	int byte_size;
+	size_t pack_size;
 };

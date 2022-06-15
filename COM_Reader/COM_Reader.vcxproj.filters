@@ -18,12 +18,12 @@
     <ClCompile Include="main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="COM_Reader_F.cpp">
+    <ClCompile Include="com_reader.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="COM_Reader_H.h">
+    <ClInclude Include="com_reader.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

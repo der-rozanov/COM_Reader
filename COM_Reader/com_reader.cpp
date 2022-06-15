@@ -1,6 +1,6 @@
-#include"COM_Reader_H.h"
+#include"com_reader.h"
 
-ComReader::ComReader(LPCWSTR PortName, int BaudRate, int byteSize) : PortName(PortName), _BaudRate(BaudRate), _byteSize(byteSize)
+ComReader::ComReader(LPCWSTR PortName, int BaudRate, int byteSize) : PortName(PortName), baud_rate(BaudRate), byte_size(byteSize)
 {
 	hSerial = ::CreateFile(PortName, GENERIC_READ | GENERIC_WRITE, 0, 0, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0); 
 
@@ -19,8 +19,8 @@ ComReader::ComReader(LPCWSTR PortName, int BaudRate, int byteSize) : PortName(Po
 	{
 		std::cout << "Getting state error. \n";
 	}
-	dcbSerialParams.BaudRate = _BaudRate; //Reading speed
-	dcbSerialParams.ByteSize = _byteSize; //The size of the readable container
+	dcbSerialParams.BaudRate = baud_rate; //Reading speed
+	dcbSerialParams.ByteSize = byte_size; //The size of the readable container
 	dcbSerialParams.StopBits = ONESTOPBIT; //dont touch me there
 	dcbSerialParams.Parity = NOPARITY; //dont touch me there
 	if (!SetCommState(hSerial, &dcbSerialParams))
@@ -47,40 +47,40 @@ ComReader::ComReader(LPCWSTR PortName, int BaudRate, int byteSize) : PortName(Po
 
 void ComReader::PrintComData()
 {
-	DWORD iSize = '0';
-	char sReceivedChar = '0';
+	DWORD recived_size = '0';
+	char received_char = '0';
 	while (true)
 	{
-		ReadFile(hSerial, &sReceivedChar, 1, &iSize, 0);
-		if (iSize > 0)
-			std::cout << sReceivedChar;
+		ReadFile(hSerial, &received_char, 1, &recived_size, 0);
+		if (recived_size > 0)
+			std::cout << received_char;
 	}
 }
 
 
 std::vector<char> ComReader::getCharData()
 {
-	DWORD iSize;
-	char sReceivedChar = '0';
+	DWORD recived_size;
+	char received_char = '0';
 	std::vector<char> str = {};
 	size_t it = 0;
 
-	while (sReceivedChar != '\n')
+	while (received_char != '\n')
 	{
-		ReadFile(hSerial, &sReceivedChar, 1, &iSize, 0);
-		if (iSize > 0)
+		ReadFile(hSerial, &received_char, 1, &recived_size, 0);
+		if (recived_size > 0)
 		{
-			str.push_back(sReceivedChar);
-			if (sReceivedChar != '\n' && sReceivedChar != '\0')
+			str.push_back(received_char);
+			if (received_char != '\n' && received_char != '\0')
 				it++;
 		}
 	}
-	packSize = it;
+	pack_size = it;
 	return str;
 }
 
 
 size_t ComReader::getSizeData()
 {
-	return packSize - 1;
+	return pack_size - 1;
 }
