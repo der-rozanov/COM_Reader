@@ -4,6 +4,7 @@ This is a class for reading the contents of serial COM ports, for example, readi
 
 ## How to use?
 1)Upload files "COM_Reader_F.cpp" and "COM_Reader_H.h" to the root where the project is assembling.
+
 2)add COM_Reader_H.h
     
     #include "COM_Reader_H.h"
