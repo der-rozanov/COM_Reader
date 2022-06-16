@@ -3,7 +3,7 @@
 This is a class for reading the contents of serial COM ports, for example, reading data coming from Arduino-type boards.
 
 ## How to use?
-1)Upload files "COM_Reader_F.cpp" and "COM_Reader_H.h" to the root where the project is assembling.
+1)Upload files "com_reader.cpp" and "com_reader.h" to the root where the project is assembling.
 
 2)add com_reader.h
     
