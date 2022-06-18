@@ -23,10 +23,15 @@ The reading speed parameter can be seen in the port opening settings on your boa
        std::vector<char> input_vector;
        input_vector = Ard.getCharData();
        
-5) You can return the size of the received data packet using the method:
+5) A C-style string is returned from the com port, which can be processed later.
+
+        char* str;
+        str = Ard.getCharData();
+       
+6) You can return the size of the received data packet using the method:
 
         size_t size = Ard.getSizeData();
         
-6) An ordinary output to the console can be done by:
+7) An ordinary output to the console can be done by:
 
         PrintComData();
