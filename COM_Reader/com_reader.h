@@ -9,8 +9,9 @@
 /// <summary>
 /// The ComReader class creates objects for reading data from serial UART ports.
 /// </summary>
-struct ComReader
+class ComReader
 {
+	public:
 	/// <summary>
 	/// 
 	/// </summary>
@@ -36,7 +37,7 @@ struct ComReader
 	/// <returns></returns>   
 	size_t getSizeData();
 
-private:
+	private:
 	HANDLE hSerial;
 	LPCWSTR PortName;
 	int baud_rate;
