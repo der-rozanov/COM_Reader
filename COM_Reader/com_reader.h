@@ -29,7 +29,12 @@ class ComReader
 	/// <summary>
 	/// Returns a vector-string received from the COM port
 	/// </summary>
-	std::vector<char> getCharData();
+	std::vector<char> getVectorData();
+
+	/// <summary>
+	/// Returns a C-style string received from the COM port
+	/// </summary>
+	char* getCharData();
 
 	/// <summary>
 	/// Returns the size of the received packet.
