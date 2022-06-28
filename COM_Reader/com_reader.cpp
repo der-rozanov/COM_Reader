@@ -1,7 +1,7 @@
 #include"com_reader.h"
 
-ComReader::ComReader(LPCWSTR PortName, int BaudRate, int byteSize) : PortName(PortName), 
-baud_rate(BaudRate), byte_size(byteSize)
+ComReader::ComReader(LPCWSTR PortName, int BaudRate, int byteSize) 
+	: PortName(PortName), baud_rate(BaudRate), byte_size(byteSize)
 {
 	pack_size = 8;
 
@@ -62,6 +62,8 @@ void ComReader::PrintComData()
 		ReadFile(hSerial, &received_char, 1, &recived_size, 0);
 		if (recived_size > 0)
 			std::cout << received_char;
+		else
+			std::cout << "No char received";
 	}
 }
 
