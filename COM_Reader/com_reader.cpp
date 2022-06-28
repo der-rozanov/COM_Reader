@@ -9,9 +9,14 @@ baud_rate(BaudRate), byte_size(byteSize)
 
 	if (hSerial == INVALID_HANDLE_VALUE) //Handle value error (falls out of the possible)
 	{
+		std::cout << "Handle value error:\n";
 		if (GetLastError() == ERROR_FILE_NOT_FOUND)
 		{
-			std::cout << "Serial port doesnt exist. \n";
+			std::cout << "\tSerial port doesnt exist. \n";
+		}
+		else
+		{
+			std::cout << "\tUnknown handle value error:\n";
 		}
 	}
 
