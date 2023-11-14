@@ -26,6 +26,8 @@ class ComReader
 	/// </summary>
 	void PrintComData();
 
+	void PrintComDataOnce();
+
 	/// <summary>
 	/// Returns a vector-string received from the COM port
 	/// </summary>

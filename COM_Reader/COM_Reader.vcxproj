@@ -133,6 +133,9 @@
   <ItemGroup>
     <ClInclude Include="com_reader.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="FlowData.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

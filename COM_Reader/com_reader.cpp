@@ -56,10 +56,23 @@ void ComReader::PrintComData()
 	{
 		ReadFile(hSerial, &received_char, 1, &recived_size, 0);
 		if (recived_size > 0)
-			std::cout << received_char;
+			std::cout << received_char; 
 	}
 }
 
+void ComReader::PrintComDataOnce()
+{
+	DWORD recived_size = '0';
+	char received_char = '0';
+	while (true)
+	{
+		ReadFile(hSerial, &received_char, 1, &recived_size, 0);
+		if (recived_size > 0)
+			std::cout << received_char;
+		if (received_char == '\n')
+			break;
+	}
+}
 
 std::vector<char> ComReader::getVectorData()
 {

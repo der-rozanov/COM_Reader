@@ -1,0 +1,11 @@
+ideal speed is 12 sensor measure is 12
+
+ideal speed is 11 sensor measure is 12
+
+ideal speed is 99 sensor measure is 12
+
+
+
+
+
+
